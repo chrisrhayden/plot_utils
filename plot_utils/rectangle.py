@@ -24,10 +24,12 @@ class Rectangle:
         self.right_points = [[self.x2] * len(y_points), y_points]
 
     def multiply_matrix(self, matrix):
-        self.top_points = matrix.dot(self.top_points)
-        self.bottom_points = matrix.dot(self.bottom_points)
-        self.left_points = matrix.dot(self.left_points)
-        self.right_points = matrix.dot(self.right_points)
+        top = matrix.dot(self.top_points)
+        bottom = matrix.dot(self.bottom_points)
+        left = matrix.dot(self.left_points)
+        right = matrix.dot(self.right_points)
+
+        return Rectangle.rect_from_matrix(top, bottom, left, right)
 
     def __repr__(self):
         return f'Rectangle - x1 = {self.x1} - y1 = {self.y1} ' \
