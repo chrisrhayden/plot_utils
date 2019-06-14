@@ -15,8 +15,8 @@ class Rectangle:
         self.make_points()
 
     def make_points(self):
-        x_points = list(range(self.x1, self.x2))
-        y_points = list(range(self.y1, self.y2))
+        x_points = list(range(self.x1, self.x2 + 1))
+        y_points = list(range(self.y1, self.y2 + 1))
 
         self.top_points = [x_points, [self.y2] * len(x_points)]
         self.bottom_points = [x_points, [self.y1] * len(x_points)]
@@ -50,3 +50,15 @@ class Rectangle:
         cls.left_points = left
         cls.right_points = right
         return cls
+
+
+def main():
+    r = Rectangle(1, 1, 10, 10)
+    r.plot_self()
+    plt.grid(True)
+    plt.axis('equal')
+    plt.show()
+
+
+if __name__ == '__main__':
+    main()
